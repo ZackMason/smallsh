@@ -8,7 +8,7 @@
 
 struct CommandList* get_input()
 {
-    char input[1024];
+    char input[1024>>1];
     size_t size = 0;
     ssize_t len = 0;
 
@@ -23,8 +23,26 @@ struct CommandList* get_input()
     }
     
     input[len-1] = '\0';
-    //printf("%s\n", input);
-    //return NULL;
+
+    // expand $$
+
+    char* pid_token = NULL;
+    while((pid_token = strstr(input, "$$")) != NULL)
+    {
+	char temp[2024];
+	pid_token[0] = 0;
+	pid_token[1] = 0;
+	
+
+	i32 pid = getpid();
+	
+	if(pid_token[2])
+	    sprintf(temp, "%s%d%s", input, pid, &pid_token[2]);
+	else
+	    sprintf(temp, "%s%d", input, pid);
+	strcpy(input, temp);
+    }
+
     
     char* save = NULL;
     char* token = NULL;
