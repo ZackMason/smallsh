@@ -9,7 +9,7 @@
 #include "shell_state.h"
 
 #include <sys/wait.h>
-
+#include <sys/types.h>
 
 int main()
 {
@@ -24,11 +24,22 @@ int main()
     
     while(state->run)
     {	
-	CommandList* cmd = get_input();
-	//print_list(cmd);
+	if (feof(stdin))
+	{
+	    state->run = 0;
+	    continue;
+	}
+	
+	if(isatty(0))
+	{
+	    char cur_dir[1024];
+	    getcwd(cur_dir, sizeof(cur_dir));	
+	    printf("%s: ",cur_dir);
+	    fflush(stdout);
+	}
 
-	//CommandFunc f = hash_map_get(custom_commands, cmd->token);
-	//if(f)f(0);continue;
+	CommandList* cmd = get_input();
+
 	if (!cmd) continue;
 	
 	char** args = calloc(list_len(cmd), sizeof(char*));
@@ -41,7 +52,6 @@ int main()
 	    head = head->next;
 	}
 
-	
 	CommandFunc builtin_command = hash_map_get(custom_commands, cmd->next->token);
 	if (builtin_command)
 	{
@@ -53,17 +63,18 @@ int main()
 
 	    if (!child_pid)
 	    {
-		state->status = 0;
 		execvp(args[0], args);
 
 		// if we get to here it means the command was not successful
-		state->status = 1;
 		printf("Command unknown: %s\n", args[0]);
 		fflush(stdout);
+		exit(1);
 	    }
 	    else
 	    {
-		wait(NULL);
+		int exit_code;
+		if (waitpid(child_pid, &exit_code, 0) >= 0)
+		    state->status = WEXITSTATUS(exit_code);
 	    }
 	}
     }

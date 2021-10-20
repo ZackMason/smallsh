@@ -1,0 +1,1 @@
+/nfs/stak/users/masonblz/smallsh/build/CMakeFiles/smallsh.dir

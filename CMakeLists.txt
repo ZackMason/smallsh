@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED TRUE)
-set(GCC_COVERAGE_COMPILE_FLAGS "-std=c99 -g")
+set(GCC_COVERAGE_COMPILE_FLAGS "-std=gnu99 -g")
 
 add_definitions(${GCC_COVERAGE_COMPILE_FLAGS})
 
