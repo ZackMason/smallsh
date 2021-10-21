@@ -13,5 +13,5 @@ i32 validate_pipe_out(CommandList* list)
 
 i32 validate_background_task(CommandList* list)
 {
-    return *list->token == '&' && list->prev && !list->next;
+    return strcmp(list->token, "&") == 0 && !list->next;
 }

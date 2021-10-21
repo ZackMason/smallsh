@@ -29,7 +29,7 @@ struct CommandList* get_input()
     char* pid_token = NULL;
     while((pid_token = strstr(input, "$$")) != NULL)
     {
-	char temp[2024];
+	char temp[2048];
 	pid_token[0] = 0;
 	pid_token[1] = 0;
 	

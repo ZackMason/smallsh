@@ -2,6 +2,15 @@
 
 #include "core.h"
 
+struct CommandList* list_last(struct CommandList* head)
+{
+    while(head && head->next)
+    {
+	head = head->next;
+    }
+    return head;
+}
+
 void print_list(CommandList* head)
 {
     i8 count = 0;

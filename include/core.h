@@ -11,6 +11,8 @@
  
 #include <sys/stat.h>
 #include <sys/wait.h>
+#include <sys/types.h>
+#include <fcntl.h>
 
 #include "types.h"
 

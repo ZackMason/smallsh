@@ -12,5 +12,6 @@ typedef struct CommandList
 
 void print_list(struct CommandList* head);
 i32 list_len(struct CommandList* head);
+struct CommandList* list_last(struct CommandList* head);
 
 #endif

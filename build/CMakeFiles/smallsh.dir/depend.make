@@ -25,6 +25,7 @@ CMakeFiles/smallsh.dir/src/main.c.o: ../include/hash_map.h
 CMakeFiles/smallsh.dir/src/main.c.o: ../include/shell_io.h
 CMakeFiles/smallsh.dir/src/main.c.o: ../include/shell_state.h
 CMakeFiles/smallsh.dir/src/main.c.o: ../include/types.h
+CMakeFiles/smallsh.dir/src/main.c.o: ../include/validation.h
 CMakeFiles/smallsh.dir/src/main.c.o: ../src/main.c
 
 CMakeFiles/smallsh.dir/src/shell_io.c.o: ../include/command_list.h
@@ -33,6 +34,7 @@ CMakeFiles/smallsh.dir/src/shell_io.c.o: ../include/shell_io.h
 CMakeFiles/smallsh.dir/src/shell_io.c.o: ../include/types.h
 CMakeFiles/smallsh.dir/src/shell_io.c.o: ../src/shell_io.c
 
+CMakeFiles/smallsh.dir/src/shell_state.c.o: ../include/core.h
 CMakeFiles/smallsh.dir/src/shell_state.c.o: ../include/shell_state.h
 CMakeFiles/smallsh.dir/src/shell_state.c.o: ../include/types.h
 CMakeFiles/smallsh.dir/src/shell_state.c.o: ../src/shell_state.c

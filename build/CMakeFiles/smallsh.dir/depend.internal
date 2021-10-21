@@ -26,6 +26,7 @@ CMakeFiles/smallsh.dir/src/main.c.o
  ../include/shell_io.h
  ../include/shell_state.h
  ../include/types.h
+ ../include/validation.h
  /nfs/stak/users/masonblz/smallsh/src/main.c
 CMakeFiles/smallsh.dir/src/shell_io.c.o
  ../include/command_list.h
@@ -34,6 +35,7 @@ CMakeFiles/smallsh.dir/src/shell_io.c.o
  ../include/types.h
  /nfs/stak/users/masonblz/smallsh/src/shell_io.c
 CMakeFiles/smallsh.dir/src/shell_state.c.o
+ ../include/core.h
  ../include/shell_state.h
  ../include/types.h
  /nfs/stak/users/masonblz/smallsh/src/shell_state.c
